@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter.filedialog import askopenfilename
 import csv
 
+
 tutorAssignedStudents = []
 
 class AssignMain(Frame): #name of class
@@ -10,7 +11,7 @@ class AssignMain(Frame): #name of class
         self.tutorList = []
 
         Frame.__init__(self) #Frame 
-        self.master.title("Example")       
+        self.master.title("Assign")       
         self.grid(sticky=W+E+N+S)       
 
         self.button = Button(self, text="Browse", command=self.readCSV, width=10) #command button activates function readCSV()
@@ -95,9 +96,18 @@ class AssignMain(Frame): #name of class
     def seeList(self):
         print (tutorAssignedStudents)
 
+
     def backToMenu(self):
-        self.master.destroy()
         import mainmenu
+        mainmenu.StartWindow()
+
+def StartWindow():
+    root = Tk()
+    root.title("Assign")
+    root.resizable(0,0)
+    app = AssignMain(root)
+    app.configure(background="white")
+    root.mainloop()    
             
 
 
